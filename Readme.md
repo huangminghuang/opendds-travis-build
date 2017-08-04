@@ -7,7 +7,7 @@ It only supports the cmake branch for the repo https://github.com/huangminghuang
 
 ###Usage
 
-A build artifact is identified by ${TRAVIS\_BRANCH}-${MAXTRIX\_NAME}-${TRAVIS\_BUILD}. The following exmaple download the artifacts built from build #109.12 (i.e. cmake branch, Release, 109) and then run bash in docker container.
+A build artifact is identified by ${TRAVIS\_BRANCH}-${MAXTRIX\_NAME}-${TRAVIS\_BUILD\_NUMBER}. The following exmaple download the artifacts built from build #109.12 (i.e. cmake branch, Release, 109) and then run bash in docker container.
 
 ```bash
 docker pull huangminghuang/opendds-travis-build

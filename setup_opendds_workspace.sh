@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+me=`realpath "$0"`
+
 set -e
 
 artifact_name=$1
@@ -25,6 +27,14 @@ mv $HOME/tmp/build $OPENDDS_SOURCE_DIR
 
 git --git-dir=$OPENDDS_SOURCE_DIR/.git checkout `cat $OpenDDS_BINARY_DIR/OpenDDS.commit`
 git --git-dir=$ACE_TAO_SOURCE_DIR/.git checkout `cat $OpenDDS_BINARY_DIR/ACE_TAO.commit`
+
+# avoid environment setup for subsequent restarting the container
+cat <<EOF >$me
+#!/usr/bin/env bash
+cd $OpenDDS_BINARY_DIR
+bash
+EOF
+
 
 cd $OpenDDS_BINARY_DIR
 bash
