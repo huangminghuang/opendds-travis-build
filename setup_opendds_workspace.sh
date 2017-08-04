@@ -37,3 +37,4 @@ EOF
 
 cd $OpenDDS_BINARY_DIR
 bash
+
