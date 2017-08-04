@@ -25,8 +25,8 @@ git clone --recursive --depth=100 `cat $HOME/tmp/build/ACE_TAO.clone_loc` $ACE_T
 
 mv $HOME/tmp/build $OPENDDS_SOURCE_DIR
 
-git --git-dir=$OPENDDS_SOURCE_DIR/.git checkout `cat $OpenDDS_BINARY_DIR/OpenDDS.commit`
-git --git-dir=$ACE_TAO_SOURCE_DIR/.git checkout `cat $OpenDDS_BINARY_DIR/ACE_TAO.commit`
+git --git-dir=$OPENDDS_SOURCE_DIR/.git checkout --quiet `cat $OpenDDS_BINARY_DIR/OpenDDS.commit`
+git --git-dir=$ACE_TAO_SOURCE_DIR/.git checkout --quiet `cat $OpenDDS_BINARY_DIR/ACE_TAO.commit`
 
 # avoid environment setup for subsequent restarting the container
 cat <<EOF >$me
@@ -34,7 +34,6 @@ cat <<EOF >$me
 cd $OpenDDS_BINARY_DIR
 bash
 EOF
-
 
 cd $OpenDDS_BINARY_DIR
 bash
