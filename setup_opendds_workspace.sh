@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-me=`realpath "$0"`
+me="$PWD/${BASH_SOURCE[0]}"
 
 set -e
 
