@@ -30,5 +30,9 @@ ENV PATH /home/travis/usr/bin:$PATH
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
+USER root
 ADD setup_opendds_workspace.sh /home/travis/usr/bin
+RUN chown travis /home/travis/usr/bin/setup_opendds_workspace.sh
+USER travis
+
 ENTRYPOINT [ "/home/travis/usr/bin/setup_opendds_workspace.sh" ]
